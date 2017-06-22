@@ -1,4 +1,4 @@
-package com.hightechware.training.codility.lessons;
+package com.hightechware.training.codility.lessons.timeComplexity;
 
 import java.util.HashSet;
 import java.util.Set;

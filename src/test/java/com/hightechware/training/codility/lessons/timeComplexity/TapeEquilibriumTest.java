@@ -1,4 +1,4 @@
-package com.hightechware.training.codility.lessons;
+package com.hightechware.training.codility.lessons.timeComplexity;
 
 import org.junit.Test;
 
@@ -57,7 +57,5 @@ public class TapeEquilibriumTest extends TapeEquilibrium {
     public void TapeEquilibrium_Solution_False_Case4() {
         assertNotEquals(null, solution(CASE_4));
     }
-
-
 
 }

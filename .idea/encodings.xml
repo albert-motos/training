@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
-    <file url="file://$PROJECT_DIR$/src/main/java/com/hightechware/training/codility/lessons/CyclicRotation.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/hightechware/training/codility/lessons/FrogJmp.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/hightechware/training/codility/lessons/OddOccurrencesInArray.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/hightechware/training/codility/lessons/PermMissingElem.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/hightechware/training/codility/lessons/arrays/CyclicRotation.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/hightechware/training/codility/lessons/arrays/OddOccurrencesInArray.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/hightechware/training/codility/lessons/timeComplexity/FrogJmp.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/hightechware/training/codility/lessons/timeComplexity/PermMissingElem.java" charset="UTF-8" />
   </component>
 </project>
 
