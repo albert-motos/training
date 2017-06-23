@@ -7,6 +7,7 @@ import java.util.Set;
  * -------------------------
  * Lesson 4: Counting Elements
  * -------------------------
+ *
  * A non-empty zero-indexed array A consisting of N integers is given.
  *
  * A permutation is a sequence containing each element from 1 to N once, and only once.
@@ -69,7 +70,7 @@ public class PermCheck {
     public int solution(int A[]) {
         int result = 0;
 
-        Set<Integer> set = new HashSet<Integer>();
+        Set<Integer> set = new HashSet<>();
         for (int a : A) {
             set.add(a);
         }
