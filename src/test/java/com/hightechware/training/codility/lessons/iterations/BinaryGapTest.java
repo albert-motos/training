@@ -2,7 +2,8 @@ package com.hightechware.training.codility.lessons.iterations;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class BinaryGapTest extends BinaryGap {
 

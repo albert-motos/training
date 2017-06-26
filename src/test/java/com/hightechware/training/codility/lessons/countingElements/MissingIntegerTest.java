@@ -2,11 +2,13 @@ package com.hightechware.training.codility.lessons.countingElements;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class MissingIntegerTest extends MissingInteger {
 
     int[] CASE_1 = {1, 3, 6, 4, 1, 2};
+    int[] CASE_2 = {-1, 3, -6, 4, 1, 2, 5};
 
     @Test
     public void MissingInteger_Solution_True_Case1() {
@@ -17,8 +19,6 @@ public class MissingIntegerTest extends MissingInteger {
     public void MissingInteger_Solution_False_Case1() {
         assertNotEquals(-1, solution(CASE_1));
     }
-
-    int[] CASE_2 = {-1, 3, -6, 4, 1, 2, 5};
 
     @Test
     public void MissingInteger_Solution_True_Case2() {

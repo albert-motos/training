@@ -2,7 +2,8 @@ package com.hightechware.training.codility.lessons.timeComplexity;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class FrogJmpTest extends FrogJmp {
 

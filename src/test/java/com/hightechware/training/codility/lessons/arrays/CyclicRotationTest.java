@@ -2,7 +2,7 @@ package com.hightechware.training.codility.lessons.arrays;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertArrayEquals;
 
 public class CyclicRotationTest extends CyclicRotation {
 
