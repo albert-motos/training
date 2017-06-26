@@ -42,26 +42,18 @@ import java.util.Set;
 public class MissingInteger {
 
     public int solution(int[] A) {
+        int result = 1;
+
         Set<Integer> set = new HashSet<>();
-
-        int max = A[0];
         for (int a : A) {
-            if (a > 0) {
-                if (set.add(a)) {
-                    if (a > max) {
-                        max = a;
-                    }
-                }
-            }
+            set.add(a);
         }
 
-        for (int i = 1; i < max + 2; i++) {
-            if (!set.contains(i)) {
-                return i;
-            }
+        while (set.contains(result)) {
+            result++;
         }
 
-        return 1;
+        return result;
     }
 
 }
