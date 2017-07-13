@@ -1,5 +1,9 @@
 package com.hightechware.training.codility.lessons.sorting;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * We draw N discs on a plane. The discs are numbered from 0 to N − 1. A zero-indexed array A of N non-negative
  * integers, specifying the radiuses of the discs, is given. The J-th disc is drawn with its center at (J, 0) and radius
@@ -37,17 +41,27 @@ public class NumberOfDiscIntersections {
     public int solution(int[] A) {
         long result = 0;
 
-        for (int i = 0; i < A.length; i++) {
-            for (int j = i + 1; j < A.length; j++) {
-                if (i + A[i] >= j - A[j]) {
-                    result++;
-                    if (result > 10000000) {
-                        return -1;
-                    }
-                }
-            }
+        List<Long> upper = new ArrayList<>();
+        List<Long> lower = new ArrayList<>();
+
+        for (int a : A) {
+            lower.add((long) (lower.size() - a));
+            upper.add((long) (upper.size() + a));
         }
 
+        Collections.sort(lower);
+        Collections.sort(upper);
+
+        int j = 0;
+        for (int i = 0; i < A.length; i++) {
+            while (j < A.length && upper.get(i) >= lower.get(j)) {
+                result += j - i;
+                j++;
+            }
+            if (result > 10000000) {
+                return -1;
+            }
+        }
         return (int) result;
     }
 
