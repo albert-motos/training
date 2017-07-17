@@ -59,7 +59,7 @@ package com.hightechware.training.codility.lessons.prefixSums;
  */
 public class GenomicRangeQuery {
 
-    public int[] solution(String S, int[] P, int[] Q){
+    public int[] solution(String S, int[] P, int[] Q) {
         int[] result = new int[P.length];
 
         int[] A = new int[S.length() + 1];

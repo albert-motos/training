@@ -1,14 +1,14 @@
 package com.hightechware.training.codility.lessons.prefixSums;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 
-import static org.junit.Assert.*;
+import static org.testng.Assert.assertEquals;
 
 public class GenomicRangeQueryTest extends GenomicRangeQuery {
 
     @Test
-    public void GenomicRangeQuery_Solution_True_Case1() {
-        assertArrayEquals(new int[]{2, 4, 1}, solution("CAGCCTA", new int[]{2, 5, 0}, new int[]{4, 5, 6}));
+    public void testSolution() {
+        assertEquals(new int[]{2, 4, 1}, solution("CAGCCTA", new int[]{2, 5, 0}, new int[]{4, 5, 6}), "testSolution_case1");
     }
 
 }

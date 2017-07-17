@@ -1,8 +1,7 @@
 package com.hightechware.training.codility.lessons.stacksAndQueues;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Stack;
 
 /**
@@ -34,22 +33,22 @@ public class Brackets {
     public int solution(String S) {
         Stack<Character> stack = new Stack<>();
 
-        Set<Character> open = new HashSet<>(Arrays.asList('(', '[', '{'));
+        Map<Character, Character> opposites = new HashMap<Character, Character>() {{
+            put('(', ')');
+            put('[', ']');
+            put('{', '}');
+        }};
 
         for (int i = 0; i < S.length(); i++) {
             Character character = S.charAt(i);
 
-            if (open.contains(character)) {
+            if (opposites.keySet().contains(character)) {
                 stack.push(character);
             } else {
                 if (stack.isEmpty()) {
                     return 0;
                 } else {
-                    Character head = stack.peek();
-
-                    if ((character == ')' && head == '(') ||
-                            (character == ']' && head == '[') ||
-                            (character == '}' && head == '{')) {
+                    if (opposites.get(stack.peek()) == character) {
                         stack.pop();
                     } else {
                         return 0;

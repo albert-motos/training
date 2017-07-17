@@ -1,23 +1,14 @@
 package com.hightechware.training.codility.lessons.arrays;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.testng.Assert.assertEquals;
 
 public class OddOccurrencesInArrayTest extends OddOccurrencesInArray {
 
-    int[] CASE_1 = {9, 3, 9, 3, 9, 7, 9};
-    int SOLUTION_1 = 7;
-
     @Test
-    public void OddOccurrencesInArray_Solution_True_Case1() {
-        assertTrue(SOLUTION_1 == solution(CASE_1));
-    }
-
-    @Test
-    public void OddOccurrencesInArray_Solution_False_Case1() {
-        assertFalse(SOLUTION_1 != solution(CASE_1));
+    public void testSolution() {
+        assertEquals(7, solution(new int[]{9, 3, 9, 3, 9, 7, 9}), "testSolution_case1");
     }
 
 }

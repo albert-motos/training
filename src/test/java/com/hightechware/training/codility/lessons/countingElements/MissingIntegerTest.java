@@ -1,33 +1,15 @@
 package com.hightechware.training.codility.lessons.countingElements;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.testng.Assert.assertEquals;
 
 public class MissingIntegerTest extends MissingInteger {
 
-    int[] CASE_1 = {1, 3, 6, 4, 1, 2};
-    int[] CASE_2 = {-1, 3, -6, 4, 1, 2, 5};
-
     @Test
-    public void MissingInteger_Solution_True_Case1() {
-        assertEquals(5, solution(CASE_1));
-    }
-
-    @Test
-    public void MissingInteger_Solution_False_Case1() {
-        assertNotEquals(-1, solution(CASE_1));
-    }
-
-    @Test
-    public void MissingInteger_Solution_True_Case2() {
-        assertEquals(6, solution(CASE_2));
-    }
-
-    @Test
-    public void MissingInteger_Solution_False_Case2() {
-        assertNotEquals(-1, solution(CASE_2));
+    public void testSolution() throws Exception {
+        assertEquals(5, solution(new int[]{1, 3, 6, 4, 1, 2}), "testSolution_case1");
+        assertEquals(6, solution(new int[]{-1, 3, -6, 4, 1, 2, 5}), "testSolution_case2");
     }
 
 }

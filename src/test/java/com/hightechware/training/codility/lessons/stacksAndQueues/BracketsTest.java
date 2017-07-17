@@ -1,28 +1,16 @@
 package com.hightechware.training.codility.lessons.stacksAndQueues;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import static org.testng.Assert.assertEquals;
 
 public class BracketsTest extends Brackets {
 
     @Test
-    public void MaxProductOfThree_Solution_True_Case1() {
-        Assert.assertEquals(1, solution("{[()()]}"));
-    }
-
-    @Test
-    public void MaxProductOfThree_Solution_False_Case1() {
-        Assert.assertNotEquals(0, solution("{[()()]}"));
-    }
-
-    @Test
-    public void MaxProductOfThree_Solution_True_Case2() {
-        Assert.assertEquals(0, solution("([)()]"));
-    }
-
-    @Test
-    public void MaxProductOfThree_Solution_False_Case2() {
-        Assert.assertNotEquals(1, solution("([)()]"));
+    public void testSolution() {
+        assertEquals(1, solution("{[()()]}"), "testSolution_case1");
+        assertEquals(0, solution("([)()]"), "testSolution_case2");
+        assertEquals(0, solution("]"), "testSolution_case3");
     }
 
 }

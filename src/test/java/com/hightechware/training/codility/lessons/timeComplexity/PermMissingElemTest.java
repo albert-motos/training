@@ -1,49 +1,16 @@
 package com.hightechware.training.codility.lessons.timeComplexity;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.testng.Assert.assertEquals;
 
 public class PermMissingElemTest extends PermMissingElem {
 
-    int[] CASE_1 = {2, 3, 1, 5};
-    int SOLUTION_1 = 4;
-
-    int[] CASE_2 = {};
-    int SOLUTION_2 = 1;
-
-    int[] CASE_3 = {1};
-    int SOLUTION_3 = 2;
-
     @Test
-    public void PermMissingElem_Solution_True_Case1() {
-        assertEquals(SOLUTION_1, solution(CASE_1));
+    public void testSolution() throws Exception {
+        assertEquals(4, solution(new int[]{2, 3, 1, 5}), "testSolution_case1");
+        assertEquals(1, solution(new int[]{}), "testSolution_case2");
+        assertEquals(2, solution(new int[]{1}), "testSolution_case3");
     }
 
-    @Test
-    public void PermMissingElem_Solution_False_Case1() {
-        assertNotEquals(-1, solution(CASE_1));
-    }
-
-    @Test
-    public void PermMissingElem_Solution_True_Case2() {
-        assertEquals(SOLUTION_2, solution(CASE_2));
-    }
-
-    @Test
-    public void PermMissingElem_Solution_False_Case2() {
-        assertNotEquals(-1, solution(CASE_2));
-    }
-
-
-    @Test
-    public void PermMissingElem_Solution_True_Case3() {
-        assertEquals(SOLUTION_3, solution(CASE_3));
-    }
-
-    @Test
-    public void PermMissingElem_Solution_False_Case3() {
-        assertNotEquals(-1, solution(CASE_3));
-    }
 }
