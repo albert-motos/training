@@ -1,5 +1,8 @@
 package com.hightechware.training.codility.lessons.stacksAndQueues;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Stack;
 
 /**
@@ -31,33 +34,27 @@ public class Brackets {
     public int solution(String S) {
         Stack<Character> stack = new Stack<>();
 
+        Set<Character> open = new HashSet<>(Arrays.asList('(', '[', '{'));
+
         for (int i = 0; i < S.length(); i++) {
             Character character = S.charAt(i);
 
-            switch (character) {
-                case ')':
-                    if (stack.peek() == '(') {
+            if (open.contains(character)) {
+                stack.push(character);
+            } else {
+                if (stack.isEmpty()) {
+                    return 0;
+                } else {
+                    Character head = stack.peek();
+
+                    if ((character == ')' && head == '(') ||
+                            (character == ']' && head == '[') ||
+                            (character == '}' && head == '{')) {
                         stack.pop();
                     } else {
-                        stack.push(character);
+                        return 0;
                     }
-                    break;
-                case '}':
-                    if (stack.peek() == '{') {
-                        stack.pop();
-                    } else {
-                        stack.push(character);
-                    }
-                    break;
-                case ']':
-                    if (stack.peek() == '[') {
-                        stack.pop();
-                    } else {
-                        stack.push(character);
-                    }
-                    break;
-                default:
-                    stack.push(character);
+                }
             }
         }
 
