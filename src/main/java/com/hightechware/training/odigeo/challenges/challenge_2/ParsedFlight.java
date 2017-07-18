@@ -1,9 +1,9 @@
 package com.hightechware.training.odigeo.challenges.challenge_2;
 
-/**
- * Created by albert-motos on 14/07/2017.
- */
+import static com.hightechware.training.odigeo.challenges.challenge_2.AbstractFlightRecommendationParser.CACHE_DELAY;
+
 class ParsedFlight {
+
     private final int price;
     private final String outboundFlight;
     private final String inboundFlight;
@@ -17,7 +17,7 @@ class ParsedFlight {
 
     private void getCachedInfo() {
         try {
-            Thread.sleep(FlightRecommendationParser.CACHE_DELAY);
+            Thread.sleep(CACHE_DELAY);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -27,4 +27,5 @@ class ParsedFlight {
     public String toString() {
         return price + "€ , [" + outboundFlight + ", " + inboundFlight + "]";
     }
+
 }

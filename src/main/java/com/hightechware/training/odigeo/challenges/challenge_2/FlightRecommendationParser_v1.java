@@ -4,43 +4,38 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
-/**
- * Created by mario.dominguez on 10/07/2017.
- */
 public class FlightRecommendationParser_v1 extends AbstractFlightRecommendationParser {
 
-    private Random rnd;
-    private List<FlightRecommendation> flightRecommendations;
     private Map<Integer, Flight> outBoundFlights;
     private Map<Integer, Flight> inBoundFlights;
 
-    public FlightRecommendationParser_v1() {
-        rnd = new Random(1);
-        flightRecommendations = buildFlightRecommendations(rnd);
-        outBoundFlights = buildFlights(rnd);
-        inBoundFlights = buildFlights(rnd);
+    FlightRecommendationParser_v1(FlightRecommendationStorage flightRecommendationStorage) {
+        flightRecommendations = flightRecommendationStorage.flightRecommendations;
+        outBoundFlights = listToHashMap(flightRecommendationStorage.outBoundFlights);
+        inBoundFlights = listToHashMap(flightRecommendationStorage.inBoundFlights);
     }
 
-    protected ParsedFlight parseRecommendation(FlightRecommendation recommendation, List<Flight> outBoundFlights, List<Flight> inBoundFlights) {
+    private ParsedFlight parseRecommendation(FlightRecommendation recommendation, Map<Integer, Flight> outBoundFlights, Map<Integer, Flight> inBoundFlights) {
         return new ParsedFlight(recommendation.getPrice(), parseFlight(outBoundFlights, recommendation.getOutboungFlightId()), parseFlight(inBoundFlights, recommendation.getInboungFlightId()));
     }
 
-    protected String parseFlight(List<Flight> flights, int flightid) {
-        for (Flight flight : flights) {
-            if (flight.getId() == flightid) {
-                return flight.getFlightNumber();
-            }
+    private String parseFlight(Map<Integer, Flight> flights, int flightid) {
+        String result = "";
+
+        Flight flight = flights.get(flightid);
+        if (flight != null) {
+            result = flight.getFlightNumber();
         }
-        return "";
+
+        return result;
     }
 
-    private Map<Integer, Flight> buildFlights(Random rnd) {
+    private Map<Integer, Flight> listToHashMap(List<Flight> flightList) {
         Map<Integer, Flight> result = new HashMap<>();
 
-        for (int i = 0; i < FLIGHT_NUM; i++) {
-            result.put(i, new Flight(i, "FA" + rnd.nextInt(1000)));
+        for (Flight flight : flightList) {
+            result.put(flight.getId(), flight);
         }
 
         return result;
@@ -52,7 +47,7 @@ public class FlightRecommendationParser_v1 extends AbstractFlightRecommendationP
 
         List<ParsedFlight> parsedFlights = new ArrayList<>();
         for (FlightRecommendation recommendation : flightRecommendations) {
-//            parsedFlights.add(parseRecommendation(recommendation, outBoundFlights, inBoundFlights));
+            parsedFlights.add(parseRecommendation(recommendation, outBoundFlights, inBoundFlights));
         }
 
         return System.currentTimeMillis() - init;
